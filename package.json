@@ -1,7 +1,7 @@
 {
   "name": "rget-cli",
   "version": "0.0.1",
-  "description": "cli for goto",
+  "description": "cli for rget",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/rgy19930329/rget-cli.git"
   },
   "bin": {
-    "goto": "./bin/goto"
+    "rget": "./bin/rget"
   },
   "author": "rgy19930329",
   "bugs": {
