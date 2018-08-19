@@ -77,7 +77,7 @@ spinner.start()
 
 console.log('\ncli current version: ' + config.version)
 
-latestVersion('goto-cli').then(version => {
+latestVersion('rget-cli').then(version => {
   console.log('\ncli latest version: ' + version)
   // 
   spinner.frames = ['-', '+', '-']
@@ -88,9 +88,9 @@ latestVersion('goto-cli').then(version => {
   var ret = versionCompare(config.version, version)
   if(ret === -1) { // 当前版本比最新版本小，则更新
     spinner2.start()
-    exec('npm install goto-cli -g --verbose', (err, stdout, stderr) => {
+    exec('npm install rget-cli -g --verbose', (err, stdout, stderr) => {
       if(err) {
-        console.log('goto-cli silent install fail! please exec "npm install goto-cli -g --verbose" yourself')
+        console.log('rget-cli silent install fail! please exec "npm install rget-cli -g --verbose" yourself')
         spinner2.fail()
       } else {
         console.log(stdout)
