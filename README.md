@@ -20,7 +20,7 @@ npm install -g rget-cli
 goto init <project name>
 
 ## 指定仓库初始化 (注：仓库格式务必按照下面的要求；域名后用":"；分支使用"#"隔开)
-goto init <project name> -r https://github.com:rgy19930329/kyvue-template#master
+goto init <project name> -r https://github.com:rgy19930329/kyvue-start#template
 ```
 
 ## Template explain

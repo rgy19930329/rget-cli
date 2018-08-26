@@ -19,7 +19,7 @@ const chalk = require('chalk')
 const logSymbols = require('log-symbols')
 
 program.usage('<project-name>')
-  .option('-r, --repository [repository]', 'assign to repository', 'https://github.com:rgy19930329/kyvue-template#master')
+  .option('-r, --repository [repository]', 'assign to repository', 'https://github.com:rgy19930329/kyvue-start#template')
   .parse(process.argv);
 
 let projectName = program.args[0];
@@ -32,6 +32,8 @@ if (!projectName) {  // project-name 必填
 
 const list = glob.sync('*')  // 遍历当前目录
 const rootName = path.basename(process.cwd()) // 获取执行当前命令的文件夹名称字符串
+
+console.log(rootName)
 
 let next = undefined
 if (list.length) {  // 如果当前目录不为空
@@ -88,7 +90,7 @@ latestVersion('rget-cli').then(version => {
   var ret = versionCompare(config.version, version)
   if(ret === -1) { // 当前版本比最新版本小，则更新
     spinner2.start()
-    exec('npm install rget-cli -g --verbose', (err, stdout, stderr) => {
+    exec('npm install rget-cli@latest -g --verbose', (err, stdout, stderr) => {
       if(err) {
         console.log('rget-cli silent install fail! please exec "npm install rget-cli -g --verbose" yourself')
         spinner2.fail()
