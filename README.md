@@ -16,11 +16,13 @@ Using npm:
 ```shell
 npm install -g rget-cli
 
-## 初始化
-rget init <project name>
+## 新建项目目录
+
+## 在空项目目录下执行初始化
+rget init 
 
 ## 指定仓库初始化 (注：仓库格式务必按照下面的要求；域名后用":"；分支使用"#"隔开)
-rget init <project name> -r https://github.com:rgy19930329/kyvue-start#template
+rget init -r https://github.com:rgy19930329/kyvue-start#template
 ```
 
 ## Template explain
