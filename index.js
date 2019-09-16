@@ -19,7 +19,10 @@ const chalk = require('chalk')
 // Colored symbols for various log levels
 const logSymbols = require('log-symbols')
 
-const init = (repository = 'https://github.com:rgy19930329/kyvue-start#template') => {
+const init = (repository = 'https://github.com:rgy19930329/kyvue-start#template', {
+  success, // 成功回调
+  error, // 失败回调
+}) => {
   program.usage('<project-name>')
     .option('-r, --repository [repository]', 'assign to repository', repository)
     .parse(process.argv);
@@ -138,10 +141,12 @@ const init = (repository = 'https://github.com:rgy19930329/kyvue-start#template'
     }).then((res) => {
       // 成功用绿色显示，给出积极的反馈
       console.log(logSymbols.success, chalk.green('项目创建成功 ^_^'))
-      console.log(chalk.green(`cd ${projectName} && npm install`))
+      console.log(chalk.green(`请执行 npm install 安装依赖`))
+      success && success(res)
     }).catch(err => {
       // 失败了用红色，增强提示
       console.error(logSymbols.error, chalk.red(`创建失败：${err.message}`))
+      error && error(err)
     })
   }
 }
