@@ -138,7 +138,7 @@ function go() {
   }).then((res) => {
     // 成功用绿色显示，给出积极的反馈
     console.log(logSymbols.success, chalk.green('项目创建成功 ^_^'))
-    console.log(chalk.green(`cd ${projectName} && npm install`))
+    console.log(chalk.green(`请执行 npm install 安装依赖`))
   }).catch(err => {
     // 失败了用红色，增强提示
     console.error(logSymbols.error, chalk.red(`创建失败：${err.message}`))
