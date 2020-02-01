@@ -1,12 +1,14 @@
 # rget-cli
+
 cli for rget
 
 ## Version
+
 ```shell
-node -v
-#v8.9.3 up
-npm -v
-#5.6.0 up
+$ node -v # v8.9.3 up
+
+$ npm -v # 5.6.0 up
+
 ```
 
 ## Installation
