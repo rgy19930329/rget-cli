@@ -20,9 +20,10 @@ const chalk = require('chalk')
 const logSymbols = require('log-symbols')
 
 const init = (repository = 'https://github.com:rgy19930329/kyvue-start#template', {
+  replaceFiles = ['package.json', 'README.md', 'ua.json', 'template.html'],
   success, // 成功回调
   error, // 失败回调
-}) => {
+} = {}) => {
   program.usage('<project-name>')
     .option('-r, --repository [repository]', 'assign to repository', repository)
     .parse(process.argv);
@@ -135,14 +136,17 @@ const init = (repository = 'https://github.com:rgy19930329/kyvue-start#template'
       return generator(
         context.metadata,
         context.target,
-        ['package.json', 'README.md', 'ua.json', 'template.html'],
+        replaceFiles,
         // path.parse(context.target).dir
       )
     }).then((res) => {
       // 成功用绿色显示，给出积极的反馈
       console.log(logSymbols.success, chalk.green('项目创建成功 ^_^'))
-      console.log(chalk.green(`请执行 npm install 安装依赖`))
-      success && success(res)
+      if (success) {
+        success(res)
+      } else {
+        console.log(chalk.green(`请执行 npm install 安装依赖`))
+      }
     }).catch(err => {
       // 失败了用红色，增强提示
       console.error(logSymbols.error, chalk.red(`创建失败：${err.message}`))
